@@ -1,0 +1,16 @@
+{
+    "name": "miguel/mvc-update",
+    "description": "MVC 2024",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app"
+        }
+    },
+    "authors": [
+        {
+            "name": "Miguel Vital",
+            "email": "miguelvital05@gmail.com"
+        }
+    ],
+    "require": {}
+}
