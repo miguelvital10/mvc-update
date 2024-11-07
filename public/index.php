@@ -7,7 +7,9 @@ session_start();
 require '../vendor/autoload.php';
 
 $app = new AppExtract;
-$controller = $app->controller();
-$method = $app->method();
+$app->controller();
+$params = $app->params();
 
-var_dump($method);
+$arr = ['product', '12'];
+
+var_dump(array_slice($arr, 1, count($arr)));
