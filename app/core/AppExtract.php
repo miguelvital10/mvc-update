@@ -4,6 +4,7 @@
 
  class AppExtract {
     public array $uri = [];
+    public string $method = 'index';
     private string $controller = 'Home';
 
     public function controller():string
@@ -23,9 +24,21 @@
         return $this->controller;
     }
 
-    public function method()
+    public function method():string
     {
+        if (isset($this->uri[1])) {
+            $this->method = strtolower($this->uri[1]);
+        }
 
+        if ($this->method === '') {
+            $this->method = 'index';
+        }
+
+        if (!method_exists($this->controller, $this->method)) {
+             $this->method = 'index';
+        }
+        
+        return $this->method;
     }
 
     public function params()

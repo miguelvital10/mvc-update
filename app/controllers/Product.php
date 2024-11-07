@@ -7,4 +7,9 @@ class Product{
     {
         return 'index';
     }
+
+    public function edit() 
+    {
+        return 'edit';
+    }
 }
