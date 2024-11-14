@@ -5,11 +5,11 @@ namespace app\controllers;
 class Product{
     public function index(array $args)
     {
-        return 'index';
+        var_dump($args);
     }
 
     public function edit(array $args) 
     {
-        return 'edit';
+        var_dump($args[1]);
     }
 }
