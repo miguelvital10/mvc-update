@@ -3,12 +3,12 @@
 namespace app\controllers;
 
 class Product{
-    public function index()
+    public function index(array $args)
     {
         return 'index';
     }
 
-    public function edit() 
+    public function edit(array $args) 
     {
         return 'edit';
     }

@@ -31,17 +31,17 @@
         if (isset($this->uri[1])) {
             $this->method = strtolower($this->uri[1]);
         }
-
+    
         if ($this->method === '') {
             $this->method = 'index';
         }
-
+    
         if (!method_exists($this->controller, $this->method)) {
-             $this->method = 'index';
-             $this->sliceIndexStartFrom = 1;
-        
-        return $this->method;
+            $this->method = 'index';
+            $this->sliceIndexStartFrom = 1;
         }
+    
+        return $this->method;
     }
 
     public function params():array

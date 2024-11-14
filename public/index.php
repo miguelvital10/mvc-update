@@ -8,8 +8,7 @@ require '../vendor/autoload.php';
 
 $app = new AppExtract;
 $app->controller();
+$app->method();
 $params = $app->params();
 
-$arr = ['product', '12'];
-
-var_dump(array_slice($arr, 1, count($arr)));
+var_dump($params);
