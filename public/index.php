@@ -13,3 +13,8 @@ $params = $app->params();
 
 $controller = new $controller;
 $controller->$method($params);
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    extract($controller->data);
+    require '../app/views/index.php';
+}
