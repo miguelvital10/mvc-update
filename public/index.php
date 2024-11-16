@@ -1,5 +1,6 @@
 <?php
 
+require 'bootstrap.php';
 use app\core\AppExtract;
 
 session_start();
