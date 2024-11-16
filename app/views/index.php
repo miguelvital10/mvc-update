@@ -10,7 +10,7 @@
 
 
     <div>
-        <?php require $viewsPath.$controller->view ?>
+        <?php require VIEW_PATH.$controller->view ?>
     </div>
 </body>
 </html>
