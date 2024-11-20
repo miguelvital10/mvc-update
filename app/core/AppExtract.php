@@ -6,38 +6,27 @@ use app\interfaces\ControllerInterface;
 
 class AppExtract implements ControllerInterface
 {
-    public array $uri = [];
-    public string $method = 'index';
     private array $params = [];
-    private int $sliceIndexStartFrom = 2;
+    private int $sliceIndexStartFrom;
 
     public function controller(): string
     {
        return ControllerExtract::extract();
     }
 
-    public function method($controller): string
-    {
-        if (isset($this->uri[1])) {
-            $this->method = strtolower($this->uri[1]);
-        }
+    public function method($controller):string
+    {     
+        [$method, $sliceIndexStartFrom] = MethodExtract::extract($controller);
+        $this->sliceIndexStartFrom = $sliceIndexStartFrom;
 
-        if ($this->method === '') {
-            $this->method = 'index';
-        }
-
-        if (!method_exists($controller, $this->method)) {
-            $this->method = 'index';
-            $this->sliceIndexStartFrom = 1;
-        }
-
-        return $this->method;
+        return $method;
     }
 
     public function params(): array
     {
-        $countUri = count($this->uri);
-        $this->params = array_slice($this->uri, $this->sliceIndexStartFrom, $countUri);
+        $uri = Uri::uri();
+        $countUri = count($uri);
+        $this->params = array_slice($uri, $this->sliceIndexStartFrom, $countUri);
 
         return $this->params;
     }
