@@ -6,7 +6,6 @@ use app\interfaces\ControllerInterface;
 
 class AppExtract implements ControllerInterface
 {
-    private array $params = [];
     private int $sliceIndexStartFrom;
 
     public function controller(): string
@@ -22,12 +21,8 @@ class AppExtract implements ControllerInterface
         return $method;
     }
 
-    public function params(): array
+    public function params():array
     {
-        $uri = Uri::uri();
-        $countUri = count($uri);
-        $this->params = array_slice($uri, $this->sliceIndexStartFrom, $countUri);
-
-        return $this->params;
+        return ParamsExtract::extract($this->sliceIndexStartFrom);
     }
 }
