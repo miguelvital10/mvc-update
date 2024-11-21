@@ -1,3 +1,3 @@
 <?php
 
-define('VIEW_PATH', '../app/views/');   
+define('VIEW_PATH', '../app/views/');
