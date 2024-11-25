@@ -44,4 +44,10 @@ class Login
 
        return redirect('/');
     }
+
+    public function destroy(){
+        unset($_SESSION['user']);
+        
+        return redirect('/');
+    }
 }

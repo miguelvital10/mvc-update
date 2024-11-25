@@ -19,7 +19,7 @@
             </ul>
 
             <div>
-                Bem Vindo!
+                <?php  echo welcome('user');?>
             </div>
         </section>
 
