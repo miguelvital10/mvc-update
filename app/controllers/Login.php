@@ -4,12 +4,32 @@ namespace app\controllers;
 
 use app\models\User;
 use app\classes\Flash;
+use app\core\MethodExtract;
 use app\models\activerecord\FindBy;
 
 class Login
 {
     public string $view;
     public array $data = [];
+
+    public function __construct()
+    {
+        $methodsToBlock = ['index','store'];
+        
+        $methods = get_class_methods($this);
+        [ $actualMethod ] = MethodExtract::extract($this);
+
+        $block = false;
+        foreach($methods as $method) {
+            if (in_array($method, $methodsToBlock) and $method === $actualMethod) {
+                // $block = true;
+                return redirect('/');
+            }
+        }
+
+        var_dump($block);
+        die();
+    }
 
     public function index()
     {
