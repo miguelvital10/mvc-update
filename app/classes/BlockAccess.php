@@ -3,6 +3,7 @@
 namespace app\classes;
 
 use app\interfaces\ControllerInterface;
+use Exception;
 
 class BlockAccess
 {
@@ -10,6 +11,7 @@ class BlockAccess
         $canBlockMethod = Block::getMethodToBlock($controllerInterface, $blockMethods);
 
         if ($canBlockMethod) {
+            BlockPostRequest::block();
             return redirect('/');
         }
     }

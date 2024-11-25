@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\classes\BlockAccess;
 use app\classes\BlockNotLogged;
 use app\models\User;
 use app\classes\Flash;
@@ -16,7 +17,7 @@ class Login implements ControllerInterface
 
     public function __construct()
     {
-       BlockNotLogged::block($this, ['store']);
+       BlockAccess::block($this, ['store']);
     }
 
     public function index(array $args)
