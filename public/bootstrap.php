@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require '../vendor/autoload.php';
 
 $whoops = new \Whoops\Run;
