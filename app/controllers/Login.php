@@ -2,36 +2,24 @@
 
 namespace app\controllers;
 
+use app\classes\BlockNotLogged;
 use app\models\User;
 use app\classes\Flash;
 use app\core\MethodExtract;
+use app\interfaces\ControllerInterface;
 use app\models\activerecord\FindBy;
 
-class Login
+class Login implements ControllerInterface
 {
     public string $view;
     public array $data = [];
 
     public function __construct()
     {
-        $methodsToBlock = ['index','store'];
-        
-        $methods = get_class_methods($this);
-        [ $actualMethod ] = MethodExtract::extract($this);
-
-        $block = false;
-        foreach($methods as $method) {
-            if (in_array($method, $methodsToBlock) and $method === $actualMethod) {
-                // $block = true;
-                return redirect('/');
-            }
-        }
-
-        var_dump($block);
-        die();
+       BlockNotLogged::block($this, ['store']);
     }
 
-    public function index()
+    public function index(array $args)
     {
         $this->view = 'Login.php';
         $this->data = [
@@ -65,9 +53,21 @@ class Login
        return redirect('/');
     }
 
-    public function destroy(){
+    public function destroy(array $args){
         unset($_SESSION['user']);
         
         return redirect('/');
+    }
+
+    public function edit(array $args){
+
+    }
+
+    public function update(array $args){
+
+    }
+
+    public function show(array $args){
+
     }
 }
