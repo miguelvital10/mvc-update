@@ -17,7 +17,7 @@ class Login implements ControllerInterface
 
     public function __construct()
     {
-       BlockAccess::block($this, ['store']);
+      
     }
 
     public function index(array $args)

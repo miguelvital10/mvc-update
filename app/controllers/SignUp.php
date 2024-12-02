@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\classes\Validate;
+
 class SignUp
 {
     public string $view;
@@ -10,23 +12,18 @@ class SignUp
     public function index(){
         $this->view = 'signup.php';
         $this->data = [
-            'title' => 'SignUp'
-        ];
+            'title' => 'signup',
+        ];  
     }
 
     public function store(){
         $validate = new Validate();
         $validate->handle([
-            'firstName' => ['REQUIRED'],
-            'lastName'  => ['REQUIRED'],
-            'email'     => ['REQUIRED','EMAIL'],
-            'password'  => ['REQUIRED',"MAXLEN.':10'"],
-        ]);
-
-        if ($validate->erros) {
-
-        }
-
+            'firstName' => [REQUIRED],
+            'lastName'  => [REQUIRED],
+            'email'     => [REQUIRED,EMAIL],
+            'password'  => [REQUIRED,MAXLEN.':10'],
+        ]); 
         //cadastro
     }
 }
