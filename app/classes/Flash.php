@@ -9,7 +9,7 @@ class Flash
         if (!isset($_SESSION['messages'][$key])) {
             $_SESSION['messages'][$key] = [
                 'message' => $message,
-                'alert' => $alert,
+                'alert' => $alert
             ];
         }
     }
