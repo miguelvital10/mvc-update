@@ -24,6 +24,9 @@ class SignUp
             'email'     => [REQUIRED,EMAIL],
             'password'  => [REQUIRED,MAXLEN.':10'],
         ]); 
-        //cadastro
+        
+        if ($validate->errors) {
+            return redirect('/signup');
+        }
     }
 }
