@@ -24,7 +24,7 @@ class FindBy implements ActiveRecordExecuteInterface
 
             $prepare = $connection->prepare($query);
             $prepare->execute([
-                $this->field = $this->value
+                $this->field => $this->value
             ]);
 
             return $prepare->fetch();

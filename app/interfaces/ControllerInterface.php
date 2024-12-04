@@ -4,7 +4,10 @@ namespace app\interfaces;
 
 interface ControllerInterface
 {
-    public function controller();
-    public function method($controller);
-    public function params();
+    public function index(array $args);
+    public function edit(array $args);
+    public function show(array $args);
+    public function update(array $args);
+    public function store();
+    public function destroy(array $args);
 }
