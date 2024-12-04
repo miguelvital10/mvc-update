@@ -4,10 +4,10 @@ namespace app\classes;
 
 Class Old
 {
-    public static function set($key)
+    public static function set($key, $value)
     {
         if (!isset($_SESSION['old'][$key])) {
-            $_SESSION['old'][$key] = [];
+            $_SESSION['old'][$key] = $value;
         }
     }
 
