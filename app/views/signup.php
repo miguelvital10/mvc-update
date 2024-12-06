@@ -1,3 +1,4 @@
+<?php echo flash('created')?>
 <form method="post" action="signup/store">
     <input type="text" name="firstName" placeholder="Nome" class="form-control" value="<?php echo old('firstName') ?>">
     <?php echo flash('firstName'); ?>

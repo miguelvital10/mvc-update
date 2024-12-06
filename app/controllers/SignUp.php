@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\classes\Validate;
 use app\models\activerecord\Insert;
+use app\classes\Flash;
 use app\models\User;
 use app\models\Users;
 
@@ -41,6 +42,7 @@ class SignUp
         $created = $user->execute(new Insert);
 
         if ($created) {
+            Flash::set('created', 'Cadastrado com sucesso', 'success');
             return redirect('/');
         } 
     }
