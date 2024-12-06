@@ -3,6 +3,9 @@
 namespace app\controllers;
 
 use app\classes\Validate;
+use app\models\activerecord\Insert;
+use app\models\User;
+use app\models\Users;
 
 class SignUp
 {
@@ -28,5 +31,17 @@ class SignUp
         if ($validate->errors) {
             return redirect('/signup');
         }
+
+        $user = new User;
+        $user->firstName = $validate->data['firstName'];
+        $user->lastName = $validate->data['lastName'];
+        $user->email = $validate->data['email'];
+        $user->password = password_hash($validate->data['password'], PASSWORD_DEFAULT);
+        
+        $created = $user->execute(new Insert);
+
+        if ($created) {
+            return redirect('/');
+        } 
     }
 }
