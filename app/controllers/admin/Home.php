@@ -6,8 +6,14 @@ use app\interfaces\ControllerInterface;
 
 class Home implements ControllerInterface
 {
+    public $data = [];
+    public $view;
+
     public function index(array $args){
-        
+        $this->data = [
+            'title' => 'Admin'
+        ];
+        $this->view = 'admin/home.php';
     }
 
     public function edit(array $args){

@@ -10,4 +10,4 @@ define('MAXLEN', 'ValidateMaxlen');
 // config
 define('ROOT', dirname(__FILE__, 3));
 define('CONTROLLER_PATH', 'app/controllers/');
-define('CONTROLLER_DEFAULT', 'HOME');
+define('CONTROLLER_DEFAULT', 'Home');

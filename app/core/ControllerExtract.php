@@ -20,16 +20,12 @@ class ControllerExtract
             $controller = CONTROLLER_DEFAULT;
         }
 
-        if (isset($uri[0]) and $uri[0] !== '') {
-            $controller = ucfirst($uri[0]);
+        $controller = $namespaceAndController.$controller;
+
+        if (class_exists($controller)) {
+            return $controller;
         }
 
-        $namespaceAndController = "app\\controllers\\" . $controller;
-
-        if (class_exists($namespaceAndController)) {
-            $controller = $namespaceAndController;
-        }
-
-        return $controller;
+        throw new \Exception("Controller {$controller} não existe");
     } 
 }
