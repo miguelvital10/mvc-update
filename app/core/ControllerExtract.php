@@ -11,8 +11,11 @@ class ControllerExtract
 
         $folderExist = FolderExtract::extract();
 
-        var_dump($folderExist);
-        die();
+        // if ($folderExist) {
+
+        // } else {
+
+        // }
 
         if (isset($uri[0]) and $uri[0] !== '') {
             $controller = ucfirst($uri[0]);
