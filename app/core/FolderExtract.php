@@ -13,7 +13,7 @@ class FolderExtract
             $folder = $uri[0];
 
             
-            return is_dir(strtolower(ROOT.'/'.CONTROLLER_PATH.$folder)) ? $folder : '';
+            return is_dir(strtolower(ROOT.'/'.CONTROLLER_PATH.$uri[0])) ? $uri[0] : '';
         }
 
         return $folder;

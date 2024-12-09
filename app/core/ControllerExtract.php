@@ -6,16 +6,19 @@ class ControllerExtract
 {
     public static function extract(){
         $uri = Uri::uri();
+        $folder = FolderExtract::extract();
 
-        $controller = 'Home';
+        if ($folder) {
+            $controller = Uri::uriExist($uri, 1);
+            $namespaceAndController = "app\\controllers\\".$folder."\\";
+        } else {
+            $controller = Uri::uriExist($uri, 0);
+            $namespaceAndController = "app\\controllers\\";
+        }
 
-        $folderExist = FolderExtract::extract();
-
-        // if ($folderExist) {
-
-        // } else {
-
-        // }
+        if (!$controller) {
+            $controller = CONTROLLER_DEFAULT;
+        }
 
         if (isset($uri[0]) and $uri[0] !== '') {
             $controller = ucfirst($uri[0]);
