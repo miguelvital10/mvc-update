@@ -1,6 +1,6 @@
 <?php
 
-namespace app\controllers;
+namespace app\controllers\site;
 
 use app\models\activerecord\FindAll;
 use app\models\User;

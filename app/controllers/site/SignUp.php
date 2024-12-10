@@ -1,6 +1,6 @@
 <?php
 
-namespace app\controllers;
+namespace app\controllers\site;
 
 use app\classes\Validate;
 use app\models\activerecord\Insert;
