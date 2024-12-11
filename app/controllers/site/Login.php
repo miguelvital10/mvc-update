@@ -12,8 +12,9 @@ use app\models\activerecord\FindBy;
 
 class Login implements ControllerInterface
 {
-    public string $view;
     public array $data = [];
+    public string $view;
+    public string $master;
 
     public function __construct()
     {
@@ -22,10 +23,11 @@ class Login implements ControllerInterface
 
     public function index(array $args)
     {
-        $this->view = 'Login.php';
         $this->data = [
             'title' => 'Login'
         ];
+        $this->view = 'Login.php';
+        $this->master = 'index.php';
     }
 
     public function store()

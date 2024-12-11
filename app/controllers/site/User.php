@@ -8,8 +8,9 @@ use Exception;
 
 class User
 {
-    public $view;
     public array $data = [];
+    public $view;
+    public $master;
 
     public function show(array $args)
     {
@@ -19,10 +20,11 @@ class User
             throw new Exception('Usuário não encontrado');
         }
 
-        $this->view = 'user.php';
         $this->data = [
             'title' => 'Dados do Usuário',
             'user'  => $user,
         ];
+        $this->view = 'user.php';
+        $this->master = 'index.php';
     }
 }

@@ -10,14 +10,16 @@ use app\models\Users;
 
 class SignUp
 {
-    public string $view;
     public array $data;
+    public string $view;
+    public array $master;
 
     public function index(){
-        $this->view = 'signup.php';
         $this->data = [
             'title' => 'signup',
         ];  
+        $this->view = 'signup.php';
+        $this->master = 'index.php';
     }
 
     public function store(){

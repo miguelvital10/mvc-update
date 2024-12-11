@@ -12,15 +12,17 @@ class Home
 
     public array $data = [];
     public string $view;
+    public string $master;
 
     public function index(array $args)
     {
         $users = (new User)->execute(new FindAll(fields:'id,firstName,lastName'));
 
-        $this->view = 'home.php';
         $this->data = [
             'title' => 'Home',
             'users' => $users,
         ];
+        $this->view = 'home.php';
+        $this->master = 'index.php';
     }
 }
