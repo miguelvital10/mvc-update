@@ -2,7 +2,9 @@
 
 namespace app\controllers\site;
 
-class Product{
+use app\interfaces\ControllerInterface;
+
+class Product implements ControllerInterface{
     
     public array $data = [];
     public string $view;
@@ -23,5 +25,22 @@ class Product{
         $this->data = [
             'title' => 'edit',
         ];  
+    }
+
+    public function show(array $args){
+
+    }
+
+    public function update(array $args)
+    {
+        
+    }
+
+    public function store(){
+
+    }
+    
+    public function destroy(array $args){
+
     }
 }
